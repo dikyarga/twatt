@@ -1,5 +1,5 @@
 // call the models
-let db = require('../models')
+let db = require('../../models')
 
 // sign with default (HMAC SHA256)
 var jwt = require('jsonwebtoken');
@@ -29,8 +29,9 @@ module.exports = {
   },
 
   myTimeline: function(req, res, next){
+    let screen_name = req.query.screen_name
     oauth.get(
-      'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=dikyarga&count=10',
+      'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=' + screen_name +'&count=10',
       process.env.TWITTER_USER_TOKEN, //test user token
       process.env.TWITTER_USER_SECRET, //test user secret
       function (e, data, result){

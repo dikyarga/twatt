@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 let authController = require('../../controllers/auth')
-let twitterController = require('../../controllers/twitter')
+let twitterController = require('../../controllers/api/twitter')
 
 router.post('/signup', authController.signup)
 
