@@ -29,5 +29,17 @@ module.exports = {
         result.send(data)
         console.log(require('util').inspect(data));
       });
+  },
+
+  myTimeline: function(req, res, next){
+    oauth.get(
+      'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=dikyarga&count=10',
+      process.env.TWITTER_USER_TOKEN, //test user token
+      process.env.TWITTER_USER_SECRET, //test user secret
+      function (e, data, result){
+        if (e) console.error(e);
+        res.send(data)
+        console.log(require('util').inspect(data));
+      });
   }
 }
