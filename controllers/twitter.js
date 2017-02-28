@@ -19,7 +19,6 @@ var oauth = new OAuth.OAuth(
 
 module.exports = {
   getNews: function(req, result, next){
-    console.log('ini process .env : ', process.env.TWITTER_USER_TOKEN);
     let keyword = req.query.keyword
     oauth.get(
       'https://api.twitter.com/1.1/search/tweets.json?q=%40' + keyword,
@@ -28,7 +27,6 @@ module.exports = {
       function (e, data, res){
         if (e) console.error(e);
         result.send(data)
-        console.log('--------------------', data);
         console.log(require('util').inspect(data));
       });
   }
