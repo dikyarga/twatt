@@ -39,5 +39,18 @@ module.exports = {
         res.send(data)
         console.log(require('util').inspect(data));
       });
+  },
+  tweet: function(req, res, next){
+    oauth.post(
+      'https://api.twitter.com/1.1/statuses/update.json?status=test',
+      process.env.TWITTER_USER_TOKEN, //test user token
+      process.env.TWITTER_USER_SECRET, //test user secret
+      function (e, data, result){
+        console.log(e, data, result);
+        if (e) console.error(e);
+        res.send(data)
+        res.end()
+        console.log(require('util').inspect(data));
+      });
   }
 }

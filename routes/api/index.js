@@ -16,5 +16,6 @@ router.get('/hello', function(req, res, next) {
 
 router.get('/get-news', twitterController.getNews)
 router.get('/my-timeline', twitterController.myTimeline)
+router.post('/tweet', twitterController.tweet)
 
 module.exports = router;

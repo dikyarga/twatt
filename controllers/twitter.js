@@ -8,7 +8,7 @@ var oauth = new OAuth.OAuth(
   'https://api.twitter.com/oauth/request_token',
   'https://api.twitter.com/oauth/access_token',
   process.env.TWITTER_REQUEST_TOKEN,
-    process.env.TWITTER_ACCESS_TOKEN,
+  process.env.TWITTER_ACCESS_TOKEN,
   '1.0A',
   null,
   'HMAC-SHA1')
@@ -27,7 +27,6 @@ module.exports = {
         console.log(require('util').inspect(data));
       });
   },
-
   myTimeline: function(req, res, next){
     oauth.get(
       'https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=dikyarga&count=10',
@@ -38,5 +37,5 @@ module.exports = {
         res.send(data)
         console.log(require('util').inspect(data));
       });
-  }
+  },
 }

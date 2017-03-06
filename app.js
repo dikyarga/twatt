@@ -12,6 +12,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var usersAPI = require('./routes/api/users');
 var indexAPI = require('./routes/api/index');
+var twitter = require('./routes/api/v2/twitter')
 
 var app = express();
 
@@ -31,6 +32,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/api/users', helper.auth, usersAPI);
 app.use('/api/', indexAPI);
+app.use('/api/v2/twitter', twitter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
